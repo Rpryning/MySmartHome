@@ -1,23 +1,12 @@
 # Setup Home Assistant to save config to github
 
+ssh-keygen -t rsa -b 4096 -C "rpryning@hotmail.com"
 
-1. git clone
-2. make changes
-3. commit
-4. sync changes
+ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa <<<y 2>&1 >/dev/null && cat ~/.ssh/ida_rsa.pub
 
----------------------------------------
+git config core.sshCommand "ssh -i /config/.ssh/id_rsa -F /dev/null"
+git config core.sshCommand "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa -F /dev/null"
+git config core.sshCommand 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa -F /dev/null'
 
-## Skift branch i VS Code
-
-Click på (master) branch for neden, create branch from here og indtast det nye branch
-(eller lav branch fra BitBucket)
-
----------------------------------------
-
-### Se kun det repos du arbejder på
-
-1. I wsl skift til det repos 
-2. Skriv "code ." tryk enter
-3. voila
-
+include folder
+esphome
